@@ -1,0 +1,352 @@
+\documentclass[conference,harvard,brazil,english]{sbatex}
+\makeatletter
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{ae}
+\usepackage{graphicx}
+\usepackage{color}
+\usepackage{pdfpages}
+\usepackage{booktabs}
+\usepackage{upquote}
+\usepackage{multirow}
+\usepackage{listingsutf8}
+
+\definecolor{lightgray}{rgb}{0.95, 0.95, 0.95}
+\definecolor{darkgray}{rgb}{0.4, 0.4, 0.4}
+%\definecolor{purple}{rgb}{0.65, 0.12, 0.82}
+\definecolor{editorGray}{rgb}{0.95, 0.95, 0.95}
+\definecolor{editorOcher}{rgb}{1, 0.5, 0} % #FF7F00 -> rgb(239, 169, 0)
+\definecolor{editorGreen}{rgb}{0, 0.5, 0} % #007C00 -> rgb(0, 124, 0)
+\definecolor{orange}{rgb}{1,0.45,0.13}		
+\definecolor{olive}{rgb}{0.17,0.59,0.20}
+\definecolor{brown}{rgb}{0.69,0.31,0.31}
+\definecolor{purple}{rgb}{0.38,0.18,0.81}
+\definecolor{lightblue}{rgb}{0.1,0.57,0.7}
+\definecolor{lightred}{rgb}{1,0.4,0.5}
+
+% CSS
+\lstdefinelanguage{CSS}{
+  keywords={color,background-image:,margin,padding,font,weight,display,position,top,left,right,bottom,list,style,border,size,white,space,min,width, transition:, transform:, transition-property, transition-duration, transition-timing-function},	
+  sensitive=true,
+  morecomment=[l]{//},
+  morecomment=[s]{/*}{*/},
+  morestring=[b]',
+  morestring=[b]",
+  alsoletter={:},
+  alsodigit={-}
+}
+% JavaScript
+\lstdefinelanguage{JavaScript}{
+  morekeywords={typeof, new, true, false, catch, function, return, null, catch, switch, var, if, in, while, do, else, case, break},
+  morecomment=[s]{/*}{*/},
+  morecomment=[l]//,
+  morestring=[b]",
+  morestring=[b]'
+}
+
+\lstdefinelanguage{HTML5}{
+  language=html,
+  sensitive=true,	
+  alsoletter={<>=-},	
+  morecomment=[s]{<!-}{-->},
+  tag=[s],
+  otherkeywords={
+  % General
+  >,
+  % Standard tags
+	<!DOCTYPE,
+  </html, <html, <head, <title, </title, <style, </style, <link, </head, <meta, />,
+	% body
+	</body, <body,
+	% Divs
+	</div, <div, </div>, 
+	% Paragraphs
+	</p, <p, </p>,
+	% scripts
+	</script, <script,
+  % More tags...
+  <canvas, /canvas>, <svg, <rect, <animateTransform, </rect>, </svg>, <video, <source, <iframe, </iframe>, </video>, <image, </image>, <header, </header, <article, </article
+  },
+  ndkeywords={
+  % General
+  =,
+  % HTML attributes
+  charset=, src=, id=, width=, height=, style=, type=, rel=, href=,
+  % SVG attributes
+  fill=, attributeName=, begin=, dur=, from=, to=, poster=, controls=, x=, y=, repeatCount=, xlink:href=,
+  % properties
+  margin:, padding:, background-image:, border:, top:, left:, position:, width:, height:, margin-top:, margin-bottom:, font-size:, line-height:,
+	% CSS3 properties
+  transform:, -moz-transform:, -webkit-transform:,
+  animation:, -webkit-animation:,
+  transition:,  transition-duration:, transition-property:, transition-timing-function:,
+  }
+}
+
+\lstdefinestyle{htmlcssjs} {
+  % General design
+%  backgroundcolor=\color{editorGray},
+  basicstyle={\footnotesize\ttfamily},   
+  frame=b,
+  % line-numbers
+  xleftmargin={0.75cm},
+  numbers=left,
+  stepnumber=1,
+  firstnumber=1,
+  numberfirstline=true,	
+  % Code design
+  identifierstyle=\color{black},
+  keywordstyle=\color{blue}\bfseries,
+  ndkeywordstyle=\color{editorGreen}\bfseries,
+  stringstyle=\color{editorOcher}\ttfamily,
+  commentstyle=\color{brown}\ttfamily,
+  % Code
+  language=HTML5,
+  alsolanguage=JavaScript,
+  alsodigit={.:;},	
+  tabsize=2,
+  showtabs=false,
+  showspaces=false,
+  showstringspaces=false,
+  extendedchars=true,
+  breaklines=true,
+  % German umlauts
+  literate=%
+  {Ö}{{\"O}}1
+  {Ä}{{\"A}}1
+  {Ü}{{\"U}}1
+  {ß}{{\ss}}1
+  {ü}{{\"u}}1
+  {ä}{{\"a}}1
+  {ö}{{\"o}}1
+}
+%
+\lstdefinestyle{py} {
+language=python,
+literate=%
+*{0}{{{\color{lightred}0}}}1
+{1}{{{\color{lightred}1}}}1
+{2}{{{\color{lightred}2}}}1
+{3}{{{\color{lightred}3}}}1
+{4}{{{\color{lightred}4}}}1
+{5}{{{\color{lightred}5}}}1
+{6}{{{\color{lightred}6}}}1
+{7}{{{\color{lightred}7}}}1
+{8}{{{\color{lightred}8}}}1
+{9}{{{\color{lightred}9}}}1,
+basicstyle=\footnotesize\ttfamily, % Standardschrift
+numbers=left,               % Ort der Zeilennummern
+%numberstyle=\tiny,          % Stil der Zeilennummern
+%stepnumber=2,               % Abstand zwischen den Zeilennummern
+numbersep=5pt,              % Abstand der Nummern zum Text
+tabsize=4,                  % Groesse von Tabs
+extendedchars=true,         %
+breaklines=true,            % Zeilen werden Umgebrochen
+keywordstyle=\color{blue}\bfseries,
+frame=b,
+commentstyle=\color{brown}\itshape,
+stringstyle=\color{editorOcher}\ttfamily, % Farbe der String
+showspaces=false,           % Leerzeichen anzeigen ?
+showtabs=false,             % Tabs anzeigen ?
+xleftmargin=17pt,
+framexleftmargin=17pt,
+framexrightmargin=5pt,
+framexbottommargin=4pt,
+%backgroundcolor=\color{lightgray},
+showstringspaces=false,      % Leerzeichen in Strings anzeigen ?
+}
+% incluir fragmento de código
+%  \lstinputlisting[language=Python, firstline=37, lastline=45]{source_filename.py}
+
+%
+% ^.
+\def\verbatim@font{\normalfont\ttfamily\footnotesize}
+\makeatother
+\usepackage{amsmath}
+
+\begin{document}
+
+\title{Banco de dados de série temporal: Uso em monitoramento de pacientes com Esclerose Lateral Amiotrófica}
+
+\author{Josiel P P Oliveira}{patricioo@ufrn.edu.br}
+\address{UFRN Campus - Lagoa Nova\\ Natal, RN, Brazil}
+
+\author[1]{  Gustavo Bezerra Paz Leitão}{gustavo.leitao@imd.ufrn.br}
+
+\twocolumn[
+
+\maketitle
+
+% \selectlanguage{english}
+% \begin{abstract}
+% This paper proposes a system for monitoring medical and hospital equipment with an emphasis on incubators used in Neonatal Intensive Care Units (NICU). The proposed architecture and system allows data storage regarding the operation and use of this equipment with a view to better management of resources, in order to seek greater availability of equipment and the maintenance of these devices for an improvement in the quantity and quality of services provided. The architecture is built from open platforms, which allow bidirectional flow of data with low latency, compatible with the local network and, consequently, there is the possibility of use in environments that do not have an internet connection.
+% \end{abstract}
+
+% \keywords{Neonatal Intensive Care Units, Web Service, WebSocket.}
+
+\selectlanguage{brazil}
+\begin{abstract}
+Este trabalho visa a comparação entre sistemas de banco de dados para série temporal para compor um sistema para monitoramento de Pacientes com ELA em homecare. A arquitetura e o sistema proposta permitem o armazenamento de dados referentes ao funcionamento e utilização desses equipamentos de ventilação mecânica não invasiva, a fim de buscar um maior conhecimento do uso dos equipamentos e a adesão dos pacientes ao tratamento com o referido aparelho. A arquitetura é construída a partir de plataformas abertas, que permitem fluxo bidirecional de dados com baixa latência.
+\end{abstract}
+
+\keywords{Unidades de Terapia Intensiva Neonatal, Serviço Web, WebSocket.}
+
+] % \end{twocolumn}
+
+\selectlanguage{brazil}
+
+
+\section{Introdução}
+
+A Esclerose Lateral Amiotrófica (ELA) é uma doença neurodegenerativa, progressiva e letal que em alguns casos leva a morte cinco anos após o inicio dos primeiros sintomas. Dessa forma, para melhor qualidade de vida do paciente, o cuidado paliativo deve ser iniciado logo após a confirmação do diagnóstico clínico \cite{presto2009ventilacao}. 
+
+Inicialmente os pacientes podem vir a fazer o uso da ventilação não-invasiva (VNI), por meio de aparelhos denominados BIPAP (pressão positiva nas vias aéreas). Sua aplicação possui diversos objetivos, dentre eles: a melhora na qualidade do sono e na qualidade de vida, a redução do desconforto respiratório e do trabalho ventilatório, a maximização das trocas gasosas e, por fim, o aumento da sobrevida \cite{fonseca2010proposta}.
+
+Os cuidados paliativos que o paciente necessita podem ser oferecidos em casa, resguardando o paciente da exposição ao ambiente hospitalar sempre que possível. Todavia, os cuidados devem ser constantes e com a VNI essa atenção deve ser redobrada uma vez que qualquer eventual intercorrência reflete diretamente na respiração do paciente e consequentemente na oxigenação do sangue afetando sobremaneira sua qualidade de vida.
+
+Para o paciente que recebe os cuidados de saúde em casa (\textit{homecare}) já existem alguns sistemas que realizam o monitoramento desses pacientes. Em uma revisão do estado da arte para sistemas de monitoramento \textit{homecare} \cite{de2012esclerose} Morais descreve e compara alguns sistemas com esta finalidade e ressalta muitas
+vantagens  advindas  do  uso  desses  sistemas. Exemplos:
+\begin{itemize}
+    \item funcionamento ininterrupto;
+    \item extrema precisão e exatidão;
+    \item redução da possibilidade de  falha  humana;
+    \item emissão de alertas na ocorrência de  situações de  risco;
+    \item apresentação de respostas à situação  de risco em curto intervalo de tempo; e
+    \item monitoração constante  e interligação  com  outros sistemas.
+\end{itemize}
+
+Outra vantagem do uso de sistemas de monitoramento de pacientes é o fato de vários  membros  de  uma  equipe  de saúde poderem ser informados ao mesmo tempo, por meio de mensagens, sobre a ocorrência de  uma  situação  de  risco  com  o  paciente \cite{morais2015fuzzy}.
+
+Dada a necessidade de um sistema específico para o monitoramento de pacientes com ELA este trabalho resulta de uma avaliação de bancos de dados de séries temporais (TSDB sigla em inglês) para uso no sistema a ser desenvolvido.
+
+A escolha por um banco de dados específico para tratar Séries temporais se deve a própria finalidade do sistema que é a de monitorar principalmente os parâmetros ventilatórios  (variáveis referentes à VNI) e alguns sinais vitais do pacientes cujos dados são melhor modelados e analisados como séries temporais.
+
+Uma série temporal, segundo \cite{namiot2015time}, pode ser definida como simplesmente uma sequência de números coletados em intervalos regulares  durante um período de tempo. Mais geralmente, uma série temporal é uma sequência de pontos de dados (não necessariamente números) e, tipicamente, consistindo em medições sucessivas feitas ao longo de um intervalo de tempo.
+
+A modelagem dos dados e demais bancos de dados utilizados pelos demais módulos a serem desenvolvidos para o pleno funcionamento do sistema estão além do escopo deste trabalho.
+
+Alguns trabalhos relacionados a comparação entre bancos de dados foram pesquisados. Dentre eles o trabalho de \cite{ferreira2015analise} no qual é feita uma comparação entre bancos de dados relacional utilizando os \textit{Benchmark‘s} TPC-C (\textit{Transaction Process Council} - Consórcio de Transações por Processo em Consultas) e AS3AP de Banco de Dados. Nestes testes as métricas podem calcular a velocidade para completar a carga de trabalho ou a vazão, que corresponde a quantas cargas de trabalho por unidade de tempo foram medidas.
+
+Outro trabalho relacionado faz comparação entre banco de dados relacional (SQL) e não relacional (NoSQL), nele \cite{garcia2019comparativo}. Trabalho importante uma vez que neste trabalho teremos banco de dados dos dois grupos pois há TSDB implementados tanto sobre os bancos SQL como NoSQL.
+
+Na seção \ref{sec:metodos} serão descritos os materiais e métodos utilizados na realização deste trabalho. Serão apresentados tanto os componentes de software quanto de hardware e os motivos das respectivas escolhas.
+Na seção \ref{sec:resultados} serão apresentados os resultados obtidos na realização dos testes. Sempre que possível com o auxílio de tabelas e gráficos.
+Na seção \ref{sec:conclusão} serão apresentados os bancos de dados descartados e os que poderão ser usados no projeto e a explicação dos motivos das escolhas e de como será a integração ao sistema em desenvolvimento, bem como tratará de futuros estudos visando a melhoria contínua do software.
+
+\section{Materiais e Métodos}
+\label{sec:metodos}
+
+Nesta seção serão detalhados os materiais utilizados nos testes detalhando tanto os  softwares quanto os componentes de hardware. Também será apresentada a forma como foram realizados todos os testes e o motivo que levaram a escolha destes métodos.
+
+Em uma busca por comparativos entre banco de dados e testes de desempenho foram selecionados alguns trabalhos que nortearam os testes realizados para fins de comparação dos bancos de dados.
+
+Método semelhante ao realizado por \cite{ferreira2015analise} foi utilizado porém com a alteração das cargas de trabalho, ou seja, alteração no número de registros inseridos antes de cada consulta. Também não foram levadas em consideração tempo de alteração ou exclusão dos dados.
+
+Os testes desconsideraram os tempo de alteração e exclusão dos dados em virtude destes valores não se tornarem relevantes na utilização do software, uma vez que no sistema proposto os dados serão inseridos por sistemas embarcados, não serão, em princípio, alterados e apenas serão excluídos após cinco anos.
+
+
+
+% o qual inspirou os testes realizados neste trabalho. Embora as quantidades tenham sido alteradas de acordo com a utilização do sistema a ser desenvolvido.
+
+
+Para que a carga de trabalho correspondesse às cargas de trabalho do sistema foram utilizados valores retirados da documentação do sistema, conforme listado a seguir:
+\begin{itemize}
+    \item 250 pacientes monitorados simultaneamente;
+    \item pelo menos 5 horas de utilização do aparelho por dia; 
+    \item serão monitoradas pelo menos 4 variáveis em cada paciente;
+    e
+    \item cada valor salvo deve conter uma marcação para busca por hora, dia, mês e ano, bem como a identificação do paciente.
+\end{itemize}
+
+
+
+A instância do banco de dados sob teste foi instalada via docker. Todos os testes foram realizados na mesma máquina com a seguinte configuração:
+
+\begin{itemize}
+    \item PROCESSADOR:
+AMD Ryzen™ 5 2400GE com placa de vídeo Radeon™ RX Vega 11
+Modelo gráfico: Radeon™ RX Vega 11 Graphics
+Nº de núcleos de CPU: 4
+Nº de threads: 8
+Clock de Max Boost: Até 3.8GHz
+Clock básico: 3.2GHz
+TDP / TDP Padrão: 35W
+
+    \item
+    \item
+    \item
+    \item
+    \item
+    
+    
+\end{itemize}
+%Foram avaliados também confiabilidade; integridade e segurança dos dados; suporte a linguagem de programação; interoperabilidade, conjunto de ferramentas do produto (\textit{stack}).
+
+
+
+
+
+% \begin{figure}[!htb]
+% \centering
+% \includegraphics[width=0.45\textwidth]{img/pwa-iot.png}
+% \caption{Arquitetura}
+% \label{fluxogramaarquitetura}
+% \end{figure}
+
+% \begin{figure}[!htb]
+% \centering
+% \includegraphics[width=0.45\textwidth]{img/integracao.pdf}
+% \caption{Comunicação entre os dispositivos}
+% \label{fluxogramaintegracao}
+% \end{figure}
+
+\section{Resultados}
+\label{sec:resultados}
+
+Dentre os bancos de dados pesquisados destacaram-se o InfluxDB e o TeDB.
+
+% \begin{figure}[!htb]
+% \centering
+% \includegraphics[width=0.475\textwidth]{img/tela1.PNG}
+% \caption{Tela da interface mostrando o gráfico do consumo de energia de uma tomada}
+% \label{interfacehistorico}
+% \end{figure}
+
+
+\section{Conclusões}
+\label{sec:conclusão}
+
+Dos sitemas testados ambos podem ser usados no sistema em desenvolvimento dando preferência ao Timescale por permitir o sistema de sharding sem a necessidade de uma licença específica como o Influx que exige um licença comercial para uso desta tecnologia.
+ 
+ 
+\bibliography{referencias}
+
+\include{tabela-bdengines}
+
+\lstinputlisting[ 
+    caption={testes com Ç},
+    style=htmlcssjs,
+    language=JavaScript
+]{code/code (1).js}
+
+\end{document}
+
+% \subsection{Requisitos}
+% Os requisitos a seguir são fragmentos dos requisitos do sistema Anjo para ELA o qual usara o banco de dados de série temporal escolhido após a análise objeto deste trabalho.
+ 
+% Os requisitos funcionais estão diretamente relacionados a alguma funcionalidade do sistema, algo que o sistema deve fazer ou oferecer como opção ao usuário.
+% Os requisitos não funcionais apresentam-se mais como uma restrição ao sistema não sendo exatamente uma funcionalidade apresentada mas de alguma forma impactam nas funcionalidades ou no comportamento do sistema de forma geral.
+
+% Requisitos Funcionais:
+% \begin{enumerate}
+%     \item O sistema deve monitorar os parâmetros ventilatórios dos  pacientes;
+%     \item O sistema deve monitorar o tempo de funcionamento do equipamento;
+%     \item Se por algum motivo (não monitorado) o equipamento falhar, o sistema deverá enviar uma notificação, com caráter de urgência, para o cuidador;
+    
+% \end{enumerate}
+
+% Requisitos não funcionais:
+% \begin{enumerate}
+%     \item Sistema deve ter um tempo de disparo de alerta menor que 5 segundos desde a detecção do problema até o recebimento no celular do cuidador.
+%     \item O sistema deverá suportar 250 pacientes em sua primeira versão.
+% \end{enumerate}

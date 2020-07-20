@@ -1,0 +1,34 @@
+\begin{thebibliography}{xx}
+
+\harvarditem{de~Andrade}{1933}{serafim}
+de~Andrade, O.  \harvardyearleft 1933\harvardyearright .
+\newblock {\em Serafim Ponte Grande}, Editora Globo.
+
+\harvarditem{Filho}{1992}{manual}
+Filho, E. L.~M.  \harvardyearleft 1992\harvardyearright .
+\newblock {\em Manual de Redação e Estilo}, Maltese.
+
+\harvarditem{Gossens \harvardand\ Mittelbach}{1993}{latex:companion}
+Gossens, M. \harvardand\ Mittelbach, F.  \harvardyearleft 1993\harvardyearright
+  .
+\newblock {\em The {\rm \LaTeX} Companion}, Addison-Wesley, Reading, MA.
+
+\harvarditem{Heller}{1996}{catch22}
+Heller, J.~L.  \harvardyearleft 1996\harvardyearright .
+\newblock {\em Catch - 22}, reprint edn, Scribner.
+
+\harvarditem{Kopka \harvardand\ Daly}{1993}{latex:guide}
+Kopka, H. \harvardand\ Daly, P.~W.  \harvardyearleft 1993\harvardyearright .
+\newblock {\em A Guide to {\LaTeX \rm:} {D}ocument Preparation for Beginners
+  and Advanced Users}, Addison-Wesley.
+
+\harvarditem{Lamport}{1986}{latex}
+Lamport, L.  \harvardyearleft 1986\harvardyearright .
+\newblock {\em {\LaTeX \rm:} {A} Document Preparation System}, Addison-Wesley.
+
+\harvarditem{Williams \harvardand\ Schnier}{1998}{harvard}
+Williams, P. \harvardand\ Schnier, T.  \harvardyearleft 1998\harvardyearright .
+\newblock The harvard family of bibliography styles.
+\newblock Documenta\c{c}\~ao que acompanha o pacote \verb+harvard+.
+
+\end{thebibliography}
